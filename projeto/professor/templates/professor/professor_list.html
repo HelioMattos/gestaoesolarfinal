@@ -1,4 +1,5 @@
 {% load static %}
+{% load format_filters %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,6 +7,7 @@
     <title>Lista de Professores</title>
     <link rel="stylesheet" href="{% static 'css/professor_list.css' %}">
 </head>
+
 <body>
 
     <!-- Menu de navegação -->  
@@ -18,28 +20,29 @@
 
     <h1>PROFESSORES CADASTRADOS</h1>
 
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho da lista -->
     <div class="cabecalho-lista2">
-        <span class="cab-nome">Nome</span>
-        <span class="cab-telefone">Telefone</span>
-        <span class="cab-disciplina">Disciplina</span>
+        <div class="coluna nome">Nome</div>
+        <div class="coluna telefone">Telefone</div>
+        <div class="coluna disciplina">Disciplina</div>
+        <div class="coluna acoes">Ações</div>
     </div>
 
     <ul>
-        {% for professor in object_list %}  
-        <li class="disciplina-item2">
-            <div class="conteudo">
-                <div class="info">
-                    <div class="campo_nome"><span class="nome">{{ professor.nome }}</span></div>
-                    <div class="campo-telefone"><span class="nome" type="tel">{{ professor.telefone }}</span></div>
-                    <div class="campo-disciplina"><span class="nome">{{ professor.disciplina.disciplina }}</span></div>
-                </div>
-                <div class="acoes">
+    {% for professor in object_list %}  
+    <li class="disciplina-item2">
+        <div class="conteudo">
+            <div class="info">
+                <div class="coluna nome">{{ professor.nome }}</div>
+                <div class="coluna telefone">{{ professor.telefone|formata_telefone }}</div>
+                <div class="coluna disciplina">{{ professor.disciplina.disciplina }}</div>
+                <div class="coluna acoes">
                     <a href="{% url 'professor_update' professor.pk %}">✏️ Editar</a>
                     <a href="{% url 'professor_delete' professor.pk %}">🗑️ Excluir</a>
                 </div>
             </div>
-        </li>
+        </div>
+    </li>
         {% empty %}
         <li><em>Nenhum professor cadastrado.</em></li>
         {% endfor %}

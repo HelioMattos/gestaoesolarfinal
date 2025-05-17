@@ -191,3 +191,31 @@ ul {
     text-align: left;
     flex: 0.5;
 }
+/* Alinhamento de colunas */
+.cabecalho-lista2,
+.info {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.coluna {
+    text-align: left;
+    font-weight: bold;
+}
+
+.coluna.nome {
+    flex: 1.5;
+}
+
+.coluna.telefone {
+    flex: 1;
+}
+
+.coluna.disciplina {
+    flex: 1.1;
+}
+
+.info .coluna {
+    font-weight: normal;
+}
