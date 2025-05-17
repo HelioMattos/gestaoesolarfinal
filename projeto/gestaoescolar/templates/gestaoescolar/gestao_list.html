@@ -51,7 +51,9 @@
     </ul> 
 
     <a href="{% url 'gestao_create' %}" class="nova-tarefa">NOVA DISCIPLINA</a>
-    <a href="{% url 'gestao_pdf' %}" class="btn-pdf" target="_blank">📄 Gerar PDF</a>
+    <a href="{% url 'gestao_pdf' %}" class="btn-pdf" target="_blank">
+        <img src="{% static 'icons/pdf.png' %}" alt="PDF" class="icon-img"> Gerar PDF
+    </a>
 
 </body>
 </html>

@@ -23,13 +23,11 @@
         <tr>
             <th>Disciplina</th>
             <th>Carga Horária</th>
-            <th>Professor</th>
         </tr>
         {% for gestao in gestao_list %}
         <tr>
             <td>{{ gestao.disciplina }}</td>
             <td>{{ gestao.carga_horaria }}</td>
-            <td>{{ gestao.professor.nome }}</td>
         </tr>
         {% endfor %}
     </table>

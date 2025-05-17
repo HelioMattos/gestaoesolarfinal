@@ -176,3 +176,24 @@ ul {
 .centro {
     text-align: center;
 }
+/* Estilo do botão */
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0;
+    padding: 0.6rem 1.2rem;
+    background-color: #ce1e18;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Ícone dentro do botão */
+.icon-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
