@@ -1,0 +1,78 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #fff5f5;
+    color: #333;
+}
+
+/* Título da página */
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #8b0000;
+}
+
+/* Mensagem de confirmação */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #a52a2a;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+/* Estilo do formulário */
+.form-tarefa {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grupo de campos (caso existam) */
+.form-group {
+    margin-bottom: 1.5rem;
+    display: none; /* Oculta o form se for apenas confirmação */
+}
+
+/* Botões de ação */
+.form-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Botão de salvar (confirma exclusão) */
+.btn-sim {
+    padding: 0.6rem 1.4rem;
+    background-color: #027c49;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-sim:hover {
+    background-color: #bcdb0c;
+}
+
+/* Botão de cancelar (voltar) */
+.btn-cancelar {
+    padding: 0.6rem 1.4rem;
+    background-color: #ad110b;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #cf800a;
+}

@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Menu de navegação */
+.menu-bar {
+    background-color: #491e1e;
+    padding: 1rem 2rem;
+    margin: -2rem -2rem 2rem -2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.menu-bar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #2ecc71;
+    transition: width 0.3s ease;
+}
+
+.menu-bar ul li a:hover {
+    color: #2ecc71;
+}
+
+.menu-bar ul li a:hover::after {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #491e1e;
+}
+
+.form-tarefa {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.form-botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn-salvar {
+    padding: 0.6rem 1.2rem;
+    background-color: #2ecc71;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.btn-salvar:hover {
+    background-color: #022912;
+}
+
+.btn-cancelar {
+    padding: 0.6rem 1.2rem;
+    background-color: #ca1616;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #ee6666;
+}

@@ -1,0 +1,31 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Excuir tarefa</title>
+
+        <link rel="stylesheet" href="{% static 'css/gestao_excluir.css' %}">
+    </head>
+    <body>
+
+        <h1>Excluir Disciplina</h1>
+        <p> Deseja Excluir a Disciplina {{ gestao.disciplina}}? </p>
+
+        <form method="POST" class="form-tarefa">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ form }}
+            </div>
+    
+            <div class="form-botoes">
+                <button type="submit" class="btn-sim">SIM</button>
+                <a href="{% url 'gestao_list' %}" class="btn-cancelar">NÃO</a>
+            </div>
+        </form>
+
+    </body>
+    </html>
+

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Professor</title>
+
+    <link rel="stylesheet" href="{% static 'css/gestao_excluir.css' %}">
+</head>
+<body>
+
+    <main>
+        <h1>Excluir Professor</h1>
+        <p>Deseja realmente excluir o professor <strong>{{ object.nome }}</strong>?</p>
+
+        <form method="POST" class="form-tarefa">
+            {% csrf_token %}
+            <div class="form-botoes">
+                <button type="submit" class="btn-sim">SIM</button>
+                <a href="{% url 'professor_list' %}" class="btn-cancelar">NÃO</a>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>
