@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Disciplinas Cadastradas</h1>
+    <table>
+        <tr>
+            <th>Disciplina</th>
+            <th>Carga Horária</th>
+            <th>Professor</th>
+        </tr>
+        {% for gestao in gestao_list %}
+        <tr>
+            <td>{{ gestao.disciplina }}</td>
+            <td>{{ gestao.carga_horaria }}</td>
+            <td>{{ gestao.professor.nome }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

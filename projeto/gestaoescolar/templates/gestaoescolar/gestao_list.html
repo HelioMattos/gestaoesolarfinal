@@ -37,9 +37,7 @@
                     <div class="campo centro">
                         <span class="nome">{{ gestao.carga_horaria }}</span>
                     </div>
-                    <div class="campo centro">
-                        <span class="nome">{{ gestao.professor.nome }}</span>
-                    </div>
+
                 </div>
                 <div class="acoes">
                     <a href="{% url 'gestao_update' gestao.pk %}">✏️ Editar</a>
@@ -53,6 +51,7 @@
     </ul> 
 
     <a href="{% url 'gestao_create' %}" class="nova-tarefa">NOVA DISCIPLINA</a>
+    <a href="{% url 'gestao_pdf' %}" class="btn-pdf" target="_blank">📄 Gerar PDF</a>
 
 </body>
 </html>
