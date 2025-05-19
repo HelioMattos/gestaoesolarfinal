@@ -5,6 +5,7 @@ from .models import Gestao
 from django.http import HttpResponse
 from django.template.loader import get_template
 from weasyprint import HTML
+from openpyxl import Workbook
 
 # Create your views here.
 
@@ -46,4 +47,23 @@ def gerar_pdf_disciplina(request):
     # Retorna como resposta
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="disciplinas.pdf"'
+    return response
+
+def exportar_disciplinas_excel(request):
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Disciplinas"
+
+    # Cabeçalho
+    ws.append(['Disciplina', 'Carga Horária'])
+
+    # Dados da tabela de disciplinas
+    disciplinas = Gestao.objects.all()
+    for disc in disciplinas:
+        ws.append([disc.disciplina, f"{disc.carga_horaria}"])
+
+    # Resposta
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=disciplinas.xlsx'
+    wb.save(response)
     return response

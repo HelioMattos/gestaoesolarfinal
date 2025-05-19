@@ -6,8 +6,8 @@ from .forms import ProfessorForm
 from django.http import HttpResponse
 from django.template.loader import get_template
 from weasyprint import HTML
+from openpyxl import Workbook
 
-# Create your views here.
 
 class ProfessorListView(ListView):
     model = Professor
@@ -46,4 +46,24 @@ def gerar_pdf_professor(request):
     # Retorna como resposta
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="disciplinas.pdf"'
+    return response
+
+def exportar_professores_excel(request):
+    # Criar o workbook e a planilha
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Professores"
+
+    # Cabeçalho
+    ws.append(['Nome', 'Telefone', 'Disciplina'])
+
+    # Dados dos professores
+    professores = Professor.objects.all()
+    for prof in professores:
+        ws.append([prof.nome, prof.telefone, prof.disciplina.disciplina])
+
+    # Resposta HTTP
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=professores.xlsx'
+    wb.save(response)
     return response
