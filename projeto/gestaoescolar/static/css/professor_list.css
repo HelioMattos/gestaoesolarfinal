@@ -144,50 +144,12 @@ ul {
     gap: 15rem;
 }
 
-.cab-nome {
-    text-align: left;
-    flex: 1.5;
-}
-
-.cab-telefone {
-    text-align: left;
-    flex: 0.5   ;
-}
-
-.cab-disciplina {
-    text-align: left;
-    flex: 1.1;
-}
-
 .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 0 1rem;
-}
-
-.campo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-}
-
-.campo:first-child {
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.campo-direita {
-    flex: 0.5;
-    text-align: center;
-}
-
-.campo-centro {
-    text-align: left;
-    flex: 0.5;
 }
 
 .cabecalho-lista2,
@@ -221,7 +183,7 @@ ul {
 
 .disciplina-item2 .coluna {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 .cabecalho-lista2 .coluna {
     font-weight: bold;
@@ -230,16 +192,19 @@ ul {
 .coluna.nomes {
     flex: 1.5;
     font-weight: bold;
-    text-transform: uppercase
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .coluna.telefones {
     flex: 1.65;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .coluna.disciplinas {
     flex: 0.45;
-    text-transform: uppercase
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .btn-pdf {
