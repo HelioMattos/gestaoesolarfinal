@@ -10,32 +10,29 @@
 
 <body>
 
-    <!-- Menu de navegação -->  
     <nav class="menu-bar">
         <ul>
             <li><a href="{% url 'gestao_list' %}">Disciplinas</a></li>
-            <li><a href="{% url 'gestao_list' %}">Professores</a></li>
+            <li><a href="{% url 'professor_list' %}">Professores</a></li>
         </ul>
     </nav>
 
     <h1>PROFESSORES CADASTRADOS</h1>
 
-    <!-- Cabeçalho da lista -->
-    <div class="cabecalho-lista2">
-        <div class="coluna nome">Nome</div>
-        <div class="coluna telefone">Telefone</div>
-        <div class="coluna disciplina">Disciplina</div>
-        <div class="coluna acoes">Ações</div>
-    </div>
+        <div class="cabecalho-lista2">
+            <div class="coluna nome">Nome</div>
+            <div class="coluna telefone">Telefone</div>
+            <div class="coluna disciplina">Disciplina</div>
+        </div>
 
     <ul>
     {% for professor in object_list %}  
     <li class="disciplina-item2">
         <div class="conteudo">
             <div class="info">
-                <div class="coluna nome">{{ professor.nome }}</div>
-                <div class="coluna telefone">{{ professor.telefone|formata_telefone }}</div>
-                <div class="coluna disciplina">{{ professor.disciplina.disciplina }}</div>
+                <div class="coluna nomes">{{ professor.nome }}</div>
+                <div class="coluna telefones">{{ professor.telefone|formata_telefone }}</div>
+                <div class="coluna disciplinas">{{ professor.disciplina.disciplina }}</div>
                 <div class="coluna acoes">
                     <a href="{% url 'professor_update' professor.pk %}">✏️ Editar</a>
                     <a href="{% url 'professor_delete' professor.pk %}">🗑️ Excluir</a>
@@ -49,6 +46,8 @@
     </ul>
 
     <a href="{% url 'professor_create' %}" class="nova-tarefa">NOVO PROFESSOR</a>
+     <a href="{% url 'professor_pdf' %}" class="btn-pdf" target="_blank">
+        <img src="{% static 'icons/pdf.png' %}" alt="PDF" class="icon-img"> Gerar PDF
 
 </body>
 </html>

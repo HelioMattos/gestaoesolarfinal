@@ -3,7 +3,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Disciplinas</title>
 
     <link rel="stylesheet" href="{% static 'css/gestao_list.css' %}">
@@ -21,29 +20,24 @@
     <h1>DISCIPLINAS CADASTRADAS</h1> 
 
     <!-- Cabeçalho com rótulos -->
-    <div class="cabecalho-lista">
-        <span class="cab-disciplina">Disciplina</span>
-        <span class="cab-carga">Carga Horária</span>
+    <div class="cabecalho-lista2">
+        <div class="coluna disciplina">Disciplina</div>
+        <div class="coluna carga">Carga Horária</div>
     </div>
 
     <ul>
-        {% for gestao in gestao_list %}
-        <li class="disciplina-item">
+        {% for gestao in object_list %}
+        <li class="disciplina-item2">
             <div class="conteudo">
                 <div class="info">
-                    <div class="campo">
-                        <span class="nome">{{ gestao.disciplina }}</span>
-                    </div>
-                    <div class="campo centro">
-                        <span class="nome">{{ gestao.carga_horaria }}</span>
-                    </div>
-
-                </div>
-                <div class="acoes">
-                    <a href="{% url 'gestao_update' gestao.pk %}">✏️ Editar</a>
-                    <a href="{% url 'gestao_delete' gestao.pk %}">🗑️ Excluir</a>
-                </div>
+                  <div class="coluna disciplinas">{{ gestao.disciplina }}</div>
+                    <div class="coluna cargas">{{ gestao.carga_horaria }}</div>
+                        <div class="coluna acoes">
+                            <a href="{% url 'gestao_update' gestao.pk %}">✏️ Editar</a>
+                            <a href="{% url 'gestao_delete' gestao.pk %}">🗑️ Excluir</a>
+                        </div>
             </div>
+        </div>
         </li>
         {% empty %}
         <li><em>Nenhuma disciplina cadastrada.</em></li>

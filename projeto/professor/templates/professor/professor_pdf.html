@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Professores Cadastrados</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Disciplina</th>
+        </tr>
+        {% for professor in professor_list %}
+        <tr>
+            <td>{{ professor.nome }}</td>
+            <td>{{ professor.telefone }}</td>
+            <td>{{ professor.disciplina.disciplina }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -62,12 +62,13 @@ ul {
     padding: 0;
 }
 
-.disciplina-item {
+.disciplina-item2 {
     background-color: #fff;
     margin-bottom: 1rem;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
 }
 
 .conteudo {
@@ -76,10 +77,10 @@ ul {
     align-items: center;
 }
 
-.nome {
-    font-weight: bold;
-    font-size: 1.1rem;
-}
+    .disciplina {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
 
 /* Botões de ação */
 .acoes {
@@ -117,7 +118,7 @@ ul {
     background-color: #ee6666;
 }
 
-/* Botão "Nova Disciplina" */
+/* Botão "Novo Professor" */
 .nova-tarefa {
     display: block;
     width: fit-content;
@@ -135,48 +136,76 @@ ul {
     background-color: #022912;
 }
 
-/* Cabeçalho da lista */
-.cabecalho-lista {
+/* Cabeçalho da lista de professores */
+.cabecalho-lista2 {
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 1rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: #491e1e;
-    gap: 1rem;
+    gap: 15rem;
 }
 
-.cab-disciplina,
-.cab-carga {
-    flex: 1;
-}
-
-.cab-disciplina {
-    text-align: left;
-}
-
-.cab-carga {
-    text-align: center;
-    margin-right: 45rem; /* Ajuste para mover mais à esquerda */
-}
-
-.info {
+    .info {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
+    padding: 0 1rem;
 }
 
-.campo {
-    display: flex;  
-    flex-direction: column;
+
+.cabecalho-lista2,
+.info {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.coluna {
+    text-align: left;
+    font-weight: bold;
+}
+
+.coluna.disciplina {
     flex: 1;
+    font-weight: bold;
 }
 
-.centro {
-    text-align: center;
+.coluna.carga {
+    flex: 1;
+    font-weight: bold;
 }
-/* Estilo do botão */
+
+.coluna.cargas {
+    flex: 0.7;
+    font-weight: bold;
+}
+
+.info .coluna {
+    font-weight: normal;
+}
+
+.disciplina-item2 .coluna {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.cabecalho-lista2 .coluna {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.coluna.cargas {
+    flex: 0.7;
+    font-weight: bold;
+}
+
+.coluna.disciplinas {
+    flex: 1;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
 .btn-pdf {
     display: inline-flex;
     align-items: center;
@@ -191,9 +220,8 @@ ul {
     transition: background-color 0.3s ease;
 }
 
-/* Ícone dentro do botão */
 .icon-img {
     width: 20px;
     height: 20px;
     margin-right: 8px;
-}
+}   

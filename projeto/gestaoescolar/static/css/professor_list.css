@@ -18,8 +18,9 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 2rem;
+    
 }
 
 .menu-bar li a {
@@ -27,7 +28,7 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 0.5rem 0;
     transition: color 0.3s ease;
 }
@@ -68,6 +69,7 @@ ul {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
 }
 
 .conteudo {
@@ -76,10 +78,10 @@ ul {
     align-items: center;
 }
 
-.nome {
-    font-weight: bold;
-    font-size: 1.1rem;
-}
+    .nome {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
 
 /* Botões de ação */
 .acoes {
@@ -205,7 +207,8 @@ ul {
 }
 
 .coluna.nome {
-    flex: 1.5;
+    flex: 1;
+    font-weight: bold;
 }
 
 .coluna.telefone {
@@ -213,9 +216,52 @@ ul {
 }
 
 .coluna.disciplina {
-    flex: 1.1;
+    flex: 0.6;
 }
 
 .info .coluna {
     font-weight: normal;
+}
+
+.disciplina-item2 .coluna {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.cabecalho-lista2 .coluna {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.coluna.nomes {
+    flex: 1.5;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+.coluna.telefones {
+    flex: 1.65;
+}
+
+.coluna.disciplinas {
+    flex: 0.45;
+    text-transform: uppercase
+}
+
+.btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0;
+    padding: 0.6rem 1.2rem;
+    background-color: #ce1e18;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
 }
