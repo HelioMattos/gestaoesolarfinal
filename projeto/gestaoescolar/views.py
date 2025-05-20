@@ -7,7 +7,6 @@ from django.template.loader import get_template
 from weasyprint import HTML
 from openpyxl import Workbook
 
-# Create your views here.
 
 class GestaoListView(ListView):
     model = Gestao
@@ -33,18 +32,16 @@ class GestaoDeleteView(DeleteView):
     template_name = 'gestaoescolar/gestao_confirm_delete.html'
 
 def gerar_pdf_disciplina(request):
-    # Pegue os dados do modelo (ou formulário, como preferir)
     from .models import Gestao
     gestao_list = Gestao.objects.all()
 
-    # Renderiza o HTML como string
-    template = get_template("gestaoescolar/gestao_pdf.html")  # HTML próprio para PDF
+
+    template = get_template("gestaoescolar/gestao_pdf.html")
     html_string = template.render({"gestao_list": gestao_list})
 
-    # Gera o PDF
+
     pdf_file = HTML(string=html_string).write_pdf()
 
-    # Retorna como resposta
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="disciplinas.pdf"'
     return response
@@ -54,15 +51,12 @@ def exportar_disciplinas_excel(request):
     ws = wb.active
     ws.title = "Disciplinas"
 
-    # Cabeçalho
     ws.append(['Disciplina', 'Carga Horária'])
 
-    # Dados da tabela de disciplinas
     disciplinas = Gestao.objects.all()
     for disc in disciplinas:
         ws.append([disc.disciplina, f"{disc.carga_horaria}"])
 
-    # Resposta
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = 'attachment; filename=disciplinas.xlsx'
     wb.save(response)
