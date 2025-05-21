@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Início - Gestão Escolar</title>
+    <link rel="stylesheet" href="{% static 'css/gestao_list.css' %}">
+</head>
+<body>
+
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="{% url 'home' %}">Início</a></li>
+            <li><a href="{% url 'gestao_list' %}">Disciplinas</a></li>
+            <li><a href="{% url 'professor_list' %}">Professores</a></li>
+        </ul>
+    </nav>
+    
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="{% static 'icons/Vassouras.png' %}" alt="Gestão Escolar" style="width: 200px;">
+        </div>
+
+    <div style="max-width: 900px; margin: 0 auto; background-color: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <h1 style="text-align: center; color: #491e1e;">Bem-vindo ao Sistema de Gestão Escolar</h1>
+        <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+            Este sistema foi desenvolvido para facilitar o gerenciamento de <strong>disciplinas</strong> e <strong>professores</strong> em instituições de ensino. A navegação é simples e prática para otimizar o seu tempo.
+        </p>
+
+       
+        <h2 style="color: #491e1e;">Funcionalidades do Sistema:</h2>
+        <ul style="font-size: 1.1rem; line-height: 1.8;">
+            <li>✅ Cadastro e edição de disciplinas</li>
+            <li>✅ Cadastro e gerenciamento de professores</li>
+            <li>✅ Exportação de dados em PDF e Excel</li>
+            <li>✅ Interface limpa e responsiva</li>
+        </ul>
+
+        
+    </div>
+
+</body>
+</html>

@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Gestao
 from django.http import HttpResponse
 from django.template.loader import get_template
 from weasyprint import HTML
 from openpyxl import Workbook
+
+class HomeView(TemplateView):
+    template_name = "gestaoescolar/home.html"
 
 
 class GestaoListView(ListView):
