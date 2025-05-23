@@ -4,7 +4,6 @@ register = template.Library()
 
 @register.filter
 def formata_telefone(value):
-
     if not value:
         return ""
     
