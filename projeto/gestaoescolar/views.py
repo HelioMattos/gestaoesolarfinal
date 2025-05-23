@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView, View
 from .models import Gestao
 from django.http import HttpResponse
 from django.template.loader import get_template
@@ -34,33 +34,30 @@ class GestaoDeleteView(DeleteView):
     success_url = reverse_lazy('gestao_list')
     template_name = 'gestaoescolar/gestao_confirm_delete.html'
 
-def gerar_pdf_disciplina(request):
-    from .models import Gestao
-    gestao_list = Gestao.objects.all()
+class GerarPdfDisciplinaView(View):
+    def get(self, request, *args, **kwargs):
+        gestao_list = Gestao.objects.all()
+        template = get_template("gestaoescolar/gestao_pdf.html")
+        html_string = template.render({"gestao_list": gestao_list})
+        pdf_file = HTML(string=html_string).write_pdf()
 
+        response = HttpResponse(pdf_file, content_type='application/pdf')
+        response['Content-Disposition'] = 'inline; filename="disciplinas.pdf"'
+        return response
+    
+class ExportarDisciplinasExcelView(View):
+    def get(self, request, *args, **kwargs):
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Disciplinas"
 
-    template = get_template("gestaoescolar/gestao_pdf.html")
-    html_string = template.render({"gestao_list": gestao_list})
+        ws.append(['Disciplina', 'Carga Horária'])
 
+        disciplinas = Gestao.objects.all()
+        for disc in disciplinas:
+            ws.append([disc.disciplina, f"{disc.carga_horaria}"])
 
-    pdf_file = HTML(string=html_string).write_pdf()
-
-    response = HttpResponse(pdf_file, content_type='application/pdf')
-    response['Content-Disposition'] = 'inline; filename="disciplinas.pdf"'
-    return response
-
-def exportar_disciplinas_excel(request):
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Disciplinas"
-
-    ws.append(['Disciplina', 'Carga Horária'])
-
-    disciplinas = Gestao.objects.all()
-    for disc in disciplinas:
-        ws.append([disc.disciplina, f"{disc.carga_horaria}"])
-
-    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    response['Content-Disposition'] = 'attachment; filename=disciplinas.xlsx'
-    wb.save(response)
-    return response
+        response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = 'attachment; filename=disciplinas.xlsx'
+        wb.save(response)
+        return response

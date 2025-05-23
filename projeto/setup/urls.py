@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from gestaoescolar.views import GestaoCreateView, GestaoListView, GestaoUpdateview, GestaoDeleteView, HomeView
+from gestaoescolar.views import GestaoCreateView, GestaoListView, GestaoUpdateview, GestaoDeleteView, HomeView, GerarPdfDisciplinaView, ExportarDisciplinasExcelView
 from gestaoescolar import views
 
 urlpatterns = [
@@ -11,8 +11,8 @@ urlpatterns = [
     path('update/<int:pk>/', GestaoUpdateview.as_view(), name='gestao_update'),
     path('delete/<int:pk>/', GestaoDeleteView.as_view(), name='gestao_delete'),
     path('professores/', include('professor.urls')),
-    path('gestaoescolar/pdf/', views.gerar_pdf_disciplina, name='gestao_pdf'),
-    path('exportar_disciplinas_excel/', views.exportar_disciplinas_excel, name='exportar_disciplinas_excel'),
+    path('gestaoescolar/pdf/', GerarPdfDisciplinaView.as_view(), name='gestao_pdf'),
+    path('exportar_disciplinas_excel/', ExportarDisciplinasExcelView.as_view(), name='exportar_disciplinas_excel'),
 
 ]
 
