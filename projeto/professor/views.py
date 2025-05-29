@@ -49,13 +49,10 @@ class ExportarProfessoresExcelView(View):
         wb = Workbook()
         ws = wb.active
         ws.title = "Professores"
-
         ws.append(['Nome', 'Telefone', 'Disciplina'])
-
         professores = Professor.objects.all()
         for prof in professores:
             ws.append([prof.nome, prof.telefone, prof.disciplina.disciplina])
-
         response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         response['Content-Disposition'] = 'attachment; filename=professores.xlsx'
         wb.save(response)

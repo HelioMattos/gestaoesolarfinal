@@ -50,13 +50,10 @@ class ExportarDisciplinasExcelView(View):
         wb = Workbook()
         ws = wb.active
         ws.title = "Disciplinas"
-
         ws.append(['Disciplina', 'Carga Horária'])
-
         disciplinas = Gestao.objects.all()
         for disc in disciplinas:
             ws.append([disc.disciplina, f"{disc.carga_horaria}"])
-
         response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         response['Content-Disposition'] = 'attachment; filename=disciplinas.xlsx'
         wb.save(response)

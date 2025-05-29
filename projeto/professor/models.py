@@ -1,5 +1,5 @@
 from django.db import models
-from gestaoescolar.models import Gestao  # Importa o modelo de disciplina
+from gestaoescolar.models import Gestao
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
